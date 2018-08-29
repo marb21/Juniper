@@ -2,11 +2,13 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-      "StorageAccountName1": {
-          "type": "string"
+      "ResourceGroup": {
+          "type": "string",
+          "defaultValue": "resourceGroupTest"
       },
-      "StorageAccountName2": {
-          "type": "string"
+      "StorageAccountName": {
+          "type": "string",
+          "defaultValue": "storagetest20180829"
       }
   },
   "variables": {},
@@ -26,7 +28,7 @@
                   "resources": [
                       {
                           "type": "Microsoft.Storage/storageAccounts",
-                          "name": "storagetest2018829",
+                          "name": "[parameters('StorageAccountName')]",
                           "apiVersion": "2015-06-15",
                           "location": "West US",
                           "properties": {
